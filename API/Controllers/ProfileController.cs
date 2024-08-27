@@ -22,6 +22,9 @@ namespace API.Controllers {
             return entityType.ToLower() switch {
                 "students" => (ActionResult<IEnumerable<object>>)Ok(await GetEntities(context.StudentsDetail)),
                 "wardens" => (ActionResult<IEnumerable<object>>)Ok(await GetEntities(context.WardensDetail)),
+                "guards" => (ActionResult<IEnumerable<object>>)Ok(await GetEntities(context.GuardsDetail)),
+                "history" => (ActionResult<IEnumerable<object>>)Ok(await GetEntities(context.OutingHistory)),
+                "requests" => (ActionResult<IEnumerable<object>>)Ok(await GetEntities(context.OutingRequest)),
                 _ => (ActionResult<IEnumerable<object>>)BadRequest("Invalid entity type in the url"),
             };
         }
@@ -31,6 +34,9 @@ namespace API.Controllers {
             return entityType.ToLower() switch {
                 "students" => (ActionResult<object>)await GetEntityById(context.StudentsDetail, id),
                 "wardens" => (ActionResult<object>)await GetEntityById(context.WardensDetail, id),
+                "guards" => (ActionResult<object>)await GetEntityById(context.GuardsDetail, id),
+                "history" => (ActionResult<object>)await GetEntityById(context.OutingHistory, id),
+                "requests" => (ActionResult<object>)await GetEntityById(context.OutingRequest, id),
                 _ => (ActionResult<object>)BadRequest("Invalid entity type in the url"),
             };
         }

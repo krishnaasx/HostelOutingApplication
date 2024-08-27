@@ -1,5 +1,5 @@
-namespace API.Entities {
-    public class RequestForOutings {
+namespace API.DTOs {
+    public class RequestDto {
         
         public required string Id { get; set; }
         public required string Name { get; set; }
@@ -7,7 +7,5 @@ namespace API.Entities {
         public required string Destination { get; set; }
         public required string OutTime { get; set; }
         public required string InTime { get; set; }
-        public bool Status { get; set; } = false;
-        
     }
 }

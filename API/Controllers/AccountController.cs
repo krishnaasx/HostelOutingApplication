@@ -3,14 +3,16 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers {
-    public class AccountController(DataContext context) : BaseApiController{
+        public class AccountController(DataContext context, ITokenService tokenService) : BaseApiController{
+        
         
         [HttpPost("student/register")]
-        public async Task<ActionResult<Students>> StudentRegister(StudentRegisterDto registerDto) {
+        public async Task<ActionResult<UserDto>> StudentRegister(StudentRegisterDto registerDto) {
 
             if( await StudentExists(registerDto.Id)) return BadRequest("Id already exists");
             using var hmac = new HMACSHA512();
@@ -27,12 +29,16 @@ namespace API.Controllers {
             };
             await context.StudentsDetail.AddAsync(student);
             await context.SaveChangesAsync();
-            return student;
+            return new UserDto {
+                Id = student.Id,
+                Token = tokenService.CreateToken(student)
+            };
 
         }
 
+        
         [HttpPost("warden/register")]
-        public async Task<ActionResult<Wardens>> WardenRegister(WardenRegisterDto registerDto) {
+        public async Task<ActionResult<UserDto>> WardenRegister(WardenRegisterDto registerDto) {
 
             if(await WardenExists(registerDto.Id)) return BadRequest("Id already exists");
             using var hmac = new HMACSHA512();
@@ -46,11 +52,14 @@ namespace API.Controllers {
             };
             await context.WardensDetail.AddAsync(warden);
             await context.SaveChangesAsync();
-            return warden;
+            return new UserDto {
+                Id = warden.Id,
+                Token = tokenService.CreateToken(warden)
+            };
         }
 
         [HttpPost("guard/register")]
-        public async Task<ActionResult<Guards>> GuardRegister(GuardRegisterDto registerDto) {
+        public async Task<ActionResult<UserDto>> GuardRegister(GuardRegisterDto registerDto) {
             if(await GuardExists(registerDto.Id)) return BadRequest("Id already exists");
             using var hmac = new HMACSHA512();
             var guard = new Guards {
@@ -62,7 +71,10 @@ namespace API.Controllers {
             };
             await context.GuardsDetail.AddAsync(guard);
             await context.SaveChangesAsync();
-            return guard;
+            return new UserDto {
+                Id = guard.Id,
+                Token = tokenService.CreateToken(guard)
+            };
         }
 
         [HttpPost("student/login")]
