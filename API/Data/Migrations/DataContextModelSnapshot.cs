@@ -49,8 +49,11 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.HistoryOfOutings", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("SerialNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SerialNumber"));
 
                     b.Property<string>("Day")
                         .IsRequired()
@@ -72,15 +75,22 @@ namespace API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("StudentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SerialNumber");
 
                     b.ToTable("OutingHistory");
                 });
 
             modelBuilder.Entity("API.Entities.RequestForOutings", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RequestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RequestId"));
 
                     b.Property<string>("Day")
                         .IsRequired()
@@ -88,6 +98,9 @@ namespace API.Data.Migrations
 
                     b.Property<string>("Destination")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InTime")
@@ -105,7 +118,7 @@ namespace API.Data.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                    b.HasKey("RequestId");
 
                     b.ToTable("OutingRequest");
                 });

@@ -35,7 +35,7 @@ namespace API.Controllers {
         [HttpPut("watch-request/{id}")]
         public async Task<ActionResult<RequestForOutings>> WatchReqeust(string id, [FromBody] bool status) {
             
-            var request = await context.OutingRequest.FindAsync(id);
+            var request = await context.OutingRequest.FirstOrDefaultAsync();
             if ( request == null) return NotFound();
 
             request.Status = status;
@@ -43,7 +43,7 @@ namespace API.Controllers {
 
             if (status) {
                 var history = new HistoryOfOutings {
-                    Id = request.Id,
+                    StudentId = request.Id,
                     Name = request.Name,
                     Day = request.Day,
                     Destination = request.Destination,

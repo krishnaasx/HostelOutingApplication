@@ -78,7 +78,7 @@ namespace API.Controllers {
         }
 
         [HttpPost("student/login")]
-        public async Task<ActionResult<Students>> StudentLogin(StudentLoginDto loginDto) {
+        public async Task<ActionResult<UserDto>> StudentLogin(StudentLoginDto loginDto) {
 
             var student = await context.StudentsDetail.FirstOrDefaultAsync(x => x.Id == loginDto.Id);
             if(student == null) return Unauthorized("Invalid Id!");
@@ -89,7 +89,10 @@ namespace API.Controllers {
                 if (computeHash[i] != student.PasswordHash[i]) return Unauthorized("Invalid password!!");
             }
 
-            return Ok(student);
+            return new UserDto {
+                Id = loginDto.Id,
+                Token = tokenService.CreateToken(student)
+            };
         }
 
 
@@ -105,11 +108,11 @@ namespace API.Controllers {
                 if (computeHash[i] != warden.PasswordHash[i]) return Unauthorized("Invalid password!!");
             }
 
-            return Ok(warden);
+            return warden;
         }
 
         [HttpPost("guard/login")]
-        public async Task<ActionResult<Guards>> GuardLogin(GuardLoginDto loginDto) {
+        public async Task<ActionResult<UserDto>> GuardLogin(GuardLoginDto loginDto) {
 
             var guard = await context.GuardsDetail.FirstOrDefaultAsync(x => x.Id == loginDto.Id);
             if(guard == null) return Unauthorized("Invalid Id!");
@@ -120,7 +123,10 @@ namespace API.Controllers {
                 if (computeHash[i] != guard.PasswordHash[i]) return Unauthorized("Invalid password!!");
             }
 
-            return Ok(guard);
+            return new UserDto {
+                Id = loginDto.Id,
+                Token = tokenService.CreateToken(guard)
+            };
         }
 
         

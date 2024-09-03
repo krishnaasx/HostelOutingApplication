@@ -1,6 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace API.Entities {
     public class Students {
         
+    
         public required string Id { get; set; }
         public required string Name { get; set; }
         public required int RoomNumber{ get; set; }

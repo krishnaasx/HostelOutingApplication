@@ -1,8 +1,8 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace API.Entities {
     public class Guards {
-        
         public required string Id { get; set; }
         public required string Name { get; set; }
         public required string PhoneNumber { get; set; }
