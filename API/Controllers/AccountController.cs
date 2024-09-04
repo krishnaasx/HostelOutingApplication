@@ -19,6 +19,7 @@ namespace API.Controllers {
             var student = new Students { 
                 Id = registerDto.Id,
                 Name = registerDto.Name,
+                Hostel = registerDto.Hostel,
                 RoomNumber = registerDto.RoomNumber,
                 PhoneNumber = registerDto.PhoneNumber,
                 ParentPhoneNumber = registerDto.ParentPhoneNumber,

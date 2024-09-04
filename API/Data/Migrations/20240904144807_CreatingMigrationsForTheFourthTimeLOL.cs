@@ -5,7 +5,7 @@
 namespace API.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CreatedAllTheMigrations : Migration
+    public partial class CreatingMigrationsForTheFourthTimeLOL : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,8 +32,8 @@ namespace API.Data.Migrations
                     SerialNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StudentId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Day = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OutTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     InTime = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -50,8 +50,8 @@ namespace API.Data.Migrations
                     RequestId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Id = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Day = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OutTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     InTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -68,6 +68,7 @@ namespace API.Data.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Hostel = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RoomNumber = table.Column<int>(type: "int", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ParentPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
