@@ -78,6 +78,25 @@ namespace API.Controllers {
             };
         }
 
+        [HttpPost("admin/register")]
+        public async Task<ActionResult<UserDto>> AdminRegister(AdminRegisterDto registerDto) {
+            if(await AdminExists(registerDto.Id)) return BadRequest("Id already exists");
+            using var hmac = new HMACSHA512();
+            var admin = new Admin {
+                Id = registerDto.Id,
+                UserName = registerDto.Username,
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+                PasswordSalt = hmac.Key
+            };
+
+            await context.AdminDetail.AddAsync(admin);
+            await context.SaveChangesAsync();
+            return new UserDto {
+                Id = admin.Id,
+                Token = tokenService.CreateToken(admin)
+            };
+        }
+
         [HttpPost("student/login")]
         public async Task<ActionResult<UserDto>> StudentLogin(StudentLoginDto loginDto) {
 
@@ -130,7 +149,23 @@ namespace API.Controllers {
             };
         }
 
-        
+        [HttpPost("admin/login")]
+        public async Task<ActionResult<UserDto>> AdminLogin(AdminLoginDto loginDto) {
+            
+            var admin = await context.AdminDetail.FirstOrDefaultAsync(x => x.Id == loginDto.Id);
+            if(admin == null) return Unauthorized("Invalid Id!");
+            using var hmac = new HMACSHA512(admin.PasswordSalt);
+            var computeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
+            for (int i = 0; i < computeHash.Length; i++) {
+                
+                if (computeHash[i] != admin.PasswordHash[i]) return Unauthorized("Invalid password!!");
+            }
+
+            return new UserDto {
+                Id = loginDto.Id,
+                Token = tokenService.CreateToken(admin)
+            };
+        }
 
         private async Task<bool> WardenExists(string id) {
             return await context.WardensDetail.AnyAsync(x => x.Id == id);
@@ -142,6 +177,10 @@ namespace API.Controllers {
 
         private async Task<bool> GuardExists(string id) {
             return await context.GuardsDetail.AnyAsync( x => x.Id == id);
+        }
+
+        private async Task<bool> AdminExists(string id) {
+            return await context.AdminDetail.AnyAsync(x => x.Id == id);
         }
 
     }

@@ -9,7 +9,7 @@ namespace API.Data {
         public DbSet<Guards> GuardsDetail { get; set; }
         public DbSet<HistoryOfOutings> OutingHistory { get; set; }
         public DbSet<RequestForOutings> OutingRequest { get; set; }
-        
+        public DbSet<Admin> AdminDetail { get; set; }
         
     }
 }

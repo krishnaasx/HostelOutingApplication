@@ -1,5 +1,6 @@
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ namespace API.Controllers {
 
 
         [HttpGet("students")]
+        [Authorize(Roles = "Warden")]
         public async Task<ActionResult<IEnumerable<Students>>> GetStudents() {
             var students = await context.StudentsDetail.ToListAsync();
             return students;
@@ -26,6 +28,7 @@ namespace API.Controllers {
 
 
         [HttpGet("students/{id}")]
+        [Authorize(Roles = "Warden")]
         public async Task<ActionResult<Students>> GetStudent(string id) {
             var student = await context.StudentsDetail.FindAsync(id);
             if (student == null) return NotFound();

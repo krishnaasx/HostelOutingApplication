@@ -16,26 +16,32 @@ namespace API.Services {
         }
 
         public string CreateToken(Students student) {
-            return CreateTokenInternal(student.Id);
+            return CreateTokenInternal(student.Id, "Student");
         }
 
         public string CreateToken(Wardens warden) {
-            return CreateTokenInternal(warden.Id);
+            return CreateTokenInternal(warden.Id, "Warden");
         }
 
         public string CreateToken(Guards guard) {
-            return CreateTokenInternal(guard.Id);
+            return CreateTokenInternal(guard.Id, "Guard");
         }
 
-        private string CreateTokenInternal(string userId) {
+        public string CreateToken(Admin admin) {
+            return CreateTokenInternal(admin.Id, "Admin");
+        }
+
+        private string CreateTokenInternal(string userId, string role) {
             var claims = new List<Claim> {
-                new(ClaimTypes.NameIdentifier, userId)
+                new(ClaimTypes.NameIdentifier, userId),
+                new(ClaimTypes.Role, role)
             };
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor {
                 Subject = new ClaimsIdentity(claims),
+
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = creds
             };

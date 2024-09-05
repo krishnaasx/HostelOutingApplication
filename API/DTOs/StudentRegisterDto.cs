@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace API.DTOs {
     public class StudentRegisterDto {
         
@@ -9,6 +11,7 @@ namespace API.DTOs {
         public required string ParentPhoneNumber { get; set; }
         public required string Address { get; set; }
         public required string DepartmentAndCourse { get; set; }
+        [StringLength(8,MinimumLength = 4)]
         public required string Password { get; set; }
     }
 }
