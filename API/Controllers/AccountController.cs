@@ -117,7 +117,7 @@ namespace API.Controllers {
 
 
         [HttpPost("warden/login")]
-        public async Task<ActionResult<Wardens>> WardenLogin(WardenLoginDto loginDto) {
+        public async Task<ActionResult<UserDto>> WardenLogin(WardenLoginDto loginDto) {
 
             var warden = await context.WardensDetail.FirstOrDefaultAsync(x => x.Id == loginDto.Id);
             if(warden == null) return Unauthorized("Invalid Id!");
@@ -128,7 +128,10 @@ namespace API.Controllers {
                 if (computeHash[i] != warden.PasswordHash[i]) return Unauthorized("Invalid password!!");
             }
 
-            return warden;
+            return new UserDto {
+                Id = loginDto.Id,
+                Token = tokenService.CreateToken(warden)
+            };
         }
 
         [HttpPost("guard/login")]

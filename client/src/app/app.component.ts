@@ -18,11 +18,11 @@ export class AppComponent implements OnInit{
   http = inject(HttpClient);
   
   ngOnInit(): void {
-    this.getUsers();
+    
   }
 
   getUsers() {
-    this.http.get("http://localhost:5000/api/profile/students").subscribe({
+    this.http.get("https://localhost:5001/api/profile/students").subscribe({
       next: (response) => {
         this.users = response;
         console.log(this.users)
