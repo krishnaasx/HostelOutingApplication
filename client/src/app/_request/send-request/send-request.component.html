@@ -1,4 +1,4 @@
-<form #requestForm="ngForm" (ngSubmit)="sendRequest()" autocomplete="off">
+<form #requestForm="ngForm" (ngSubmit)="sendRequest(requestForm)" autocomplete="off">
   <h2 class="text-center text-primary">Send Request</h2>
   <hr />
 
@@ -38,7 +38,7 @@
   </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-success me-2" type="submit" routerLink="/check-request">Submit</button>
+    <button class="btn btn-success me-2" type="submit">Submit</button>
   </div>
 </form>
 <router-outlet></router-outlet>

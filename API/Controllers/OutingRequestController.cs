@@ -1,6 +1,7 @@
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +9,7 @@ namespace API.Controllers {
     public class OutingRequestController(DataContext context) : BaseApiController {
         
         [HttpPost("send-request")]
-        public async Task<ActionResult<string>> SendRequest(RequestDto requestDto) {
+        public async Task<ActionResult<RequestForOutings>> SendRequest(RequestDto requestDto) {
 
             var verify = await context.StudentsDetail.FindAsync(requestDto.Id);
 
@@ -24,25 +25,26 @@ namespace API.Controllers {
 
                 await context.OutingRequest.AddAsync(request);
                 await context.SaveChangesAsync();
+                return request;
             }else {
-                return "The Student who is reqeusting is not registered!";
+                return Unauthorized();
             }
             
-            return "Reqeust has been sent to your warden";
         }
 
-        [HttpGet("see-request")]
+        [HttpGet("check-request")]
         public async Task<ActionResult<IEnumerable<RequestForOutings>>> SeeRequest() {
             var outings = await context.OutingRequest.ToListAsync();
             return outings;
         }
 
-        /* [HttpGet("see-request/{id}")]
-        public async Task<ActionResult<IEnumerable<RequestForOutings>>> SeeRequest(string id) {
-            var outings = await context.OutingRequest.FindAsync(id);
-            return Ok(outings);
+        [HttpGet("check-request/{id}")]
+        public async Task<ActionResult<RequestForOutings>> CheckRequest(string id) {
+            var request = await context.OutingRequest.FirstOrDefaultAsync(e => e.Id == id);
+            if (request == null) return NotFound();
+            return Ok(request);
         }
-        */
+        
 
         [HttpPut("update-request/{id}")]
         public async Task<ActionResult<RequestForOutings>> WatchReqeust(string id, [FromBody] bool status) {

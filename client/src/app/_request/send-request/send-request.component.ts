@@ -17,21 +17,28 @@ import { ToastrModule, ToastrService } from "ngx-toastr";
 })
 export class SendRequestComponent {
 
-  private sendReqeustService = inject(SendRequestService);
+  private sendRequestService = inject(SendRequestService);
   private router = inject(Router);
-  private toastr = inject(ToastrService)
+  private toastr = inject(ToastrService);
   model: any = {};
 
-  sendRequest() {
-    this.sendReqeustService.request(this.model).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.router.navigateByUrl("/check-request");
-      },
-      error: (error) => this.toastr.info(error.info),
-      complete: () => console.log("Request has been completed")
-    })
+  sendRequest(form: any) {
+    if (form.valid) { 
+      this.sendRequestService.request(this.model).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.router.navigateByUrl("/check-request"); 
+          // The component(checkRequest) will show the request for the current student - TODO
+        },
+        error: (error) => {
+          this.toastr.info(error.info);
+          console.error(error);
+        },
+        complete: () => console.log("Request has been completed")
+      });
+    } else {
+      this.toastr.error("Please fill in all required fields."); 
+    }
   }
 
 }
-     
