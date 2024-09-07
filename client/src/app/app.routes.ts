@@ -4,6 +4,7 @@ import { WardenLoginComponent } from "./login/warden-login/warden-login.componen
 import { StudentLoginComponent } from "./login/student-login/student-login.component";
 import { GuardLoginComponent } from "./login/guard-login/guard-login.component";
 import { SendRequestComponent } from "./_request/send-request/send-request.component";
+import { CheckRequestComponent } from "./_request/check-request/check-request.component";
 
 export const routes: Routes = [
 
@@ -11,6 +12,7 @@ export const routes: Routes = [
   { path: 'wardenLogin', component: WardenLoginComponent},
   { path: 'studentLogin', component: StudentLoginComponent},
   { path: 'guardLogin', component: GuardLoginComponent},
-  { path: 'send-request', component: SendRequestComponent}
+  { path: 'send-request', component: SendRequestComponent},
+  { path: 'check-request', component: CheckRequestComponent}
   
 ];

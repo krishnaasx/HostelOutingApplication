@@ -1,13 +1,14 @@
 import { Component, inject, output } from '@angular/core';
 import { StudentAccountService } from "../../_services/student-account.service";
-import { Router } from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-student-login',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    RouterOutlet
   ],
   templateUrl: './student-login.component.html',
   styleUrl: './student-login.component.css'

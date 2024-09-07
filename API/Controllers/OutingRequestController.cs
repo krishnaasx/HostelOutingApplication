@@ -1,8 +1,6 @@
-using System.Net.Mime;
 using API.Data;
 using API.DTOs;
 using API.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +8,6 @@ namespace API.Controllers {
     public class OutingRequestController(DataContext context) : BaseApiController {
         
         [HttpPost("send-request")]
-        [Authorize(Roles = "Student")]
         public async Task<ActionResult<string>> SendRequest(RequestDto requestDto) {
 
             var verify = await context.StudentsDetail.FindAsync(requestDto.Id);
@@ -35,7 +32,6 @@ namespace API.Controllers {
         }
 
         [HttpGet("see-request")]
-        [Authorize(Roles = "Warden")]
         public async Task<ActionResult<IEnumerable<RequestForOutings>>> SeeRequest() {
             var outings = await context.OutingRequest.ToListAsync();
             return outings;
@@ -49,7 +45,6 @@ namespace API.Controllers {
         */
 
         [HttpPut("update-request/{id}")]
-        [Authorize(Roles = "Warden")]
         public async Task<ActionResult<RequestForOutings>> WatchReqeust(string id, [FromBody] bool status) {
             
             var request = await context.OutingRequest.FirstOrDefaultAsync(e => e.Id == id);
@@ -74,7 +69,6 @@ namespace API.Controllers {
 
             return request;
         }
-
 
         [HttpGet("see-history")]
         public async Task<ActionResult<IEnumerable<HistoryOfOutings>>> SeeHistory(){
