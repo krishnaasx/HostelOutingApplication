@@ -28,7 +28,6 @@ namespace API.Controllers {
 
 
         [HttpGet("students/{id}")]
-        [Authorize(Roles = "Warden")]
         public async Task<ActionResult<Students>> GetStudent(string id) {
             var student = await context.StudentsDetail.FindAsync(id);
             if (student == null) return NotFound();

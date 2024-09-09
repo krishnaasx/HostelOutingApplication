@@ -23,11 +23,8 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Admin", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<byte[]>("PasswordHash")
                         .IsRequired()

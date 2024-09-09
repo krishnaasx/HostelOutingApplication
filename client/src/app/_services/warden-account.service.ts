@@ -10,14 +10,14 @@ export class WardenAccountService {
 
   private http = inject(HttpClient);
   baseUrl = "https://localhost:5001/api/account";
-  currentUser = signal<Warden | null> (null);
+  currentWarden = signal<Warden | null> (null);
 
   login(model: any) {
     return this.http.post<Warden>(this.baseUrl + "/warden/login", model).pipe(
       map((warden) => {
         if (warden) {
           localStorage.setItem('warden', JSON.stringify(warden));
-          this.currentUser.set(warden);
+          this.currentWarden.set(warden);
         }
       })
     )
@@ -25,6 +25,6 @@ export class WardenAccountService {
 
   logout() {
     localStorage.removeItem('warden');
-    this.currentUser.set(null);
+    this.currentWarden.set(null);
   }
 }

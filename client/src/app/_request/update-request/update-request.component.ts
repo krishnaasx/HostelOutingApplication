@@ -19,7 +19,6 @@ export class UpdateRequestComponent {
   model: any = { id: '', model: false};
 
   updateRequest() {
-
     if(this.model.status == true) {
       this.updateRequestService.updateRequest(this.model.id, true).subscribe({
         next: (response) => {

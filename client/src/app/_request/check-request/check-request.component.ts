@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import { WardenAccountService } from "../../_services/warden-account.service";
 
 @Component({
   selector: 'app-check-request',
@@ -20,6 +21,7 @@ export class CheckRequestComponent implements OnInit{
   private toastr = inject(ToastrService);
   private router = inject(Router);
   Requests: any;
+  private wardenAccountService = inject(WardenAccountService);
 
   ngOnInit(): void {
     this.checkRequest();
@@ -36,10 +38,12 @@ export class CheckRequestComponent implements OnInit{
     });
   }
 
-  navigateToUpdate(requestId: string) {
-    this.router.navigate(['/update-request'], { queryParams: { id: requestId } });
-  }
 
+  navigateToUpdate(requestId: string) {
+    if(this.wardenAccountService.currentWarden()) {
+      this.router.navigate(['/update-request'], { queryParams: { id: requestId } });
+    } 
+  }
 }
 
 

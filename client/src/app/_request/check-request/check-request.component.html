@@ -13,6 +13,7 @@
         <th>Status</th>
       </tr>
     </thead>
+    
     <tbody>
       <tr *ngFor="let request of Requests">
         <td (click)="navigateToUpdate(request.id)" style="cursor: pointer; color: blue; text-decoration: underline;">

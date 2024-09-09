@@ -24,7 +24,7 @@ export class WardenLoginComponent {
       next: (response) => {
         console.log(response);
         this.logout();
-        this.router.navigateByUrl('/update-request');
+        this.router.navigateByUrl('/check-request');
       },
       error: (error) => console.log(error)
     });
