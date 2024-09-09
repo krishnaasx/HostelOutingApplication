@@ -2,6 +2,7 @@ import { Component, inject, output } from '@angular/core';
 import { Router } from "@angular/router";
 import { WardenAccountService } from "../../_services/warden-account.service";
 import { FormsModule } from "@angular/forms";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-warden-login',
@@ -16,21 +17,23 @@ export class WardenLoginComponent {
 
   private wardenAccountService = inject(WardenAccountService);
   private router = inject(Router);
-  cancelLogin = output<boolean>();
+  private location = inject(Location);
   model: any = {};
+  wardenLoggedIn = false;
 
   wardenLogin() {
     this.wardenAccountService.login(this.model).subscribe({
       next: (response) => {
         console.log(response);
-        this.logout();
-        this.router.navigateByUrl('/check-request');
+        this.wardenLoggedIn = true;
+        this.router.navigateByUrl('/check-request-warden');
       },
       error: (error) => console.log(error)
     });
   }
 
-  logout() {
-    this.cancelLogin.emit(false);
+  goback() {
+    this.location.back();
   }
+
 }

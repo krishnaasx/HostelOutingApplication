@@ -2,6 +2,7 @@ import { Component, inject, output } from '@angular/core';
 import { GuardAccountService } from "../../_services/guard-account.service";
 import { Router } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-guard-login',
@@ -16,21 +17,21 @@ export class GuardLoginComponent {
 
   private guardAccountService = inject(GuardAccountService);
   private router = inject(Router);
-  cancelLogin = output<boolean>();
+  private location = inject(Location);
   model: any = {};
 
   guardLogin() {
     this.guardAccountService.login(this.model).subscribe({
       next: (response) => {
         console.log(response);
-        this.logout();
-        this.router.navigateByUrl('/guard-thing');
+        this.router.navigateByUrl('/allowed-students');
       },
       error: (error) => console.log(error)
     });
   }
 
-  logout() {
-    this.cancelLogin.emit(false);
+  goback(){
+    this.location.back();
   }
+
 }

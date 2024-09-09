@@ -16,14 +16,14 @@ export class UpdateRequestComponent {
   
   private updateRequestService = inject(UpdateRequestService);
   private router = inject(Router);
-  model: any = { id: '', model: false};
+  model: any = {id: null, model: false};
 
   updateRequest() {
     if(this.model.status == true) {
       this.updateRequestService.updateRequest(this.model.id, true).subscribe({
         next: (response) => {
           console.log(response);
-          this.router.navigateByUrl("/check-request");
+          this.router.navigateByUrl("/check-request-warden");
         },
         error: (error) => {
           console.error(error);
@@ -33,7 +33,7 @@ export class UpdateRequestComponent {
       this.updateRequestService.updateRequest(this.model.id, false).subscribe({
         next: (response) => {
           console.log(response);
-          this.router.navigateByUrl("/check-request");
+          this.router.navigateByUrl("/check-request-warden");
         },
         error: (error) => {
           console.error(error);

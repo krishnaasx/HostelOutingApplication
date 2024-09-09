@@ -3,7 +3,6 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Request ID</th>
         <th>Student ID</th>
         <th>Day</th>
         <th>Date</th>
@@ -13,12 +12,9 @@
         <th>Status</th>
       </tr>
     </thead>
-    
+
     <tbody>
       <tr *ngFor="let request of Requests">
-        <td (click)="navigateToUpdate(request.id)" style="cursor: pointer; color: blue; text-decoration: underline;">
-          {{ request.requestId }}
-        </td>
         <td>{{ request.id }}</td>
         <td>{{ request.day }}</td>
         <td>{{ request.date }}</td>

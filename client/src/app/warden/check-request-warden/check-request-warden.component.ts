@@ -1,27 +1,26 @@
-import { NgFor } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { WardenAccountService } from "../../_services/warden-account.service";
+import { NgFor } from "@angular/common";
 
 @Component({
-  selector: 'app-check-request',
+  selector: 'app-check-request-warden',
   standalone: true,
   imports: [
     NgFor
   ],
-  templateUrl: './check-request.component.html',
-  styleUrl: './check-request.component.css'
+  templateUrl: './check-request-warden.component.html',
+  styleUrl: './check-request-warden.component.css'
 })
-
-export class CheckRequestComponent implements OnInit{
+export class CheckRequestWardenComponent {
 
   private http = inject(HttpClient);
   private toastr = inject(ToastrService);
   private router = inject(Router);
   Requests: any;
-  private wardenAccountService = inject(WardenAccountService);
+  wardenAccountService = inject(WardenAccountService);
 
   ngOnInit(): void {
     this.checkRequest();
@@ -38,12 +37,7 @@ export class CheckRequestComponent implements OnInit{
     });
   }
 
-
-  navigateToUpdate(requestId: string) {
-    if(this.wardenAccountService.currentWarden()) {
+  navigateToUpdate(requestId: any) {
       this.router.navigate(['/update-request'], { queryParams: { id: requestId } });
-    } 
   }
 }
-
-

@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 class="text-center">Check Requests</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Day</th>
+          <th>Date</th>
+          <th>Destination</th>
+          <th>Out Time</th>
+          <th>In Time</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let request of Requests">
+          <td>{{ request.studentId }}</td>
+          <td>{{ request.day }}</td>
+          <td>{{ request.date }}</td>
+          <td>{{ request.destination }}</td>
+          <td>{{ request.outTime }}</td>
+          <td>{{ request.inTime }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

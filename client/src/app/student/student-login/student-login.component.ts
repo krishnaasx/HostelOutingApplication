@@ -2,6 +2,7 @@ import { Component, inject, output } from '@angular/core';
 import { StudentAccountService } from "../../_services/student-account.service";
 import { Router, RouterOutlet } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-student-login',
@@ -17,6 +18,7 @@ export class StudentLoginComponent {
 
   private studentAccountService = inject(StudentAccountService);
   private router = inject(Router);
+  private location = inject(Location);
   cancelLogin = output<boolean>();
   model: any = {};
 
@@ -25,10 +27,14 @@ export class StudentLoginComponent {
       next: (response) => {
         console.log(response);
         this.logout();
-        this.router.navigateByUrl('/send-request');
+        this.router.navigateByUrl('/student-manu');
       },
       error: (error) => console.log(error)
     });
+  }
+
+  goback() {
+    this.location.back();
   }
 
   logout() {

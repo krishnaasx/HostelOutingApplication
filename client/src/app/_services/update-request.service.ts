@@ -9,7 +9,7 @@ export class UpdateRequestService {
   private http = inject(HttpClient);
   baseUrl = "https://localhost:5001/api/outingrequest/update-request/";
 
-  updateRequest(id: string, status: boolean): Observable<any> {
+  updateRequest(id: any, status: boolean): Observable<any> {
     return this.http.put(`${this.baseUrl}${id}`, status);
   }
 }
