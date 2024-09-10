@@ -11,14 +11,13 @@
           <th>Out Time</th>
           <th>In Time</th>
           <th>Status</th>
+          <th>Update</th>
         </tr>
       </thead>
       
       <tbody>
         <tr *ngFor="let request of Requests">
-          <td (click)="navigateToUpdate(request.requestId)" style="cursor: pointer; color: blue">
-            {{ request.requestId }}
-          </td>
+          <td>{{ request.requestId }}</td>
           <td>{{ request.id }}</td>
           <td>{{ request.day }}</td>
           <td>{{ request.date }}</td>
@@ -26,7 +25,10 @@
           <td>{{ request.outTime }}</td>
           <td>{{ request.inTime }}</td>
           <td>{{ request.status }}</td>
+          <td><button (click)="update(request.requestId, request.status)">Update</button></td>
         </tr>
       </tbody>
     </table>
+
+    <button (click)="goback()">Back</button>
   </div>

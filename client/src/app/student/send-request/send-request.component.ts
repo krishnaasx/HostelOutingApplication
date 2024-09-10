@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { SendRequestService } from "../../_services/send-request.service";
-import { Router, RouterOutlet } from "@angular/router";
+import { RouterOutlet } from "@angular/router";
 import { ToastrModule, ToastrService } from "ngx-toastr";
 import { NgFor } from "@angular/common";
-import { StudentAccountService } from "../../_services/student-account.service";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-send-request',
@@ -21,18 +21,16 @@ import { StudentAccountService } from "../../_services/student-account.service";
 export class SendRequestComponent {
 
   private sendRequestService = inject(SendRequestService);
-  private router = inject(Router);
   private toastr = inject(ToastrService);
+  private location = inject(Location);
   model: any = {};
-  private studentAccountService = inject(StudentAccountService);
 
   sendRequest(form: any) {
     if (form.valid) { 
       this.sendRequestService.request(this.model).subscribe({
         next: (response) => {
           console.log(response);
-          this.router.navigateByUrl("/check-request-student"); 
-          // The component(checkRequest) will show the request for the current student - TODO
+          this.toastr.success("The request has been submitted!!");
         },
         error: (error) => {
           this.toastr.info(error.info);
@@ -45,4 +43,7 @@ export class SendRequestComponent {
     }
   }
 
+  goback() {
+    this.location.back();
+  }
 }

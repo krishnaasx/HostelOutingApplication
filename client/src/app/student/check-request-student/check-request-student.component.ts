@@ -1,7 +1,8 @@
-import { NgFor } from "@angular/common";
-import { HttpClient } from "@angular/common/http";
+import { Location, NgFor } from "@angular/common";
 import { Component, inject } from '@angular/core';
-import { ToastrService } from "ngx-toastr";
+import { GetReqByIdService } from "../../_services/get-req-by-id.service";
+import { StudentAccountService } from "../../_services/student-account.service";
+
 
 @Component({
   selector: 'app-check-request-student',
@@ -11,24 +12,34 @@ import { ToastrService } from "ngx-toastr";
   styleUrl: './check-request-student.component.css'
 })
 export class CheckRequestStudentComponent {
-  private http = inject(HttpClient);
-  private toastr = inject(ToastrService);
-  Requests: any;
+  
+  private getReqByIdService = inject(GetReqByIdService);
+  private studentAccountService = inject(StudentAccountService);
+  private location = inject(Location);
+  Requests: any[] = [];
+  studentId: string | null = null;
 
-  ngOnInit(): void {
-    this.checkRequest();
+  constructor() {
+    this.studentId = this.studentAccountService.currentUser()?.id ?? null;
+    if (this.studentId) {
+      this.fetchStudentHistory();
+    } else {
+      console.error("No student is logged in.");
+    }
   }
 
-  checkRequest() {
-    this.http.get("https://localhost:5001/api/outingrequest/check-request").subscribe({
+  fetchStudentHistory() {
+    this.getReqByIdService.getRequestById(this.studentId!).subscribe({
       next: (response) => {
         this.Requests = response;
         console.log(this.Requests);
       },
-      error: error => this.toastr.error(error.error),
-      complete: () => console.log("request has been completed!")
+      error: (error) => console.error(error)
     });
   }
 
-
+  goback() {
+    this.location.back();
+  }
+  
 }

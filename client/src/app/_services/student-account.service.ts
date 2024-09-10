@@ -24,6 +24,10 @@ export class StudentAccountService {
     )
   }
 
+  getCurrentStudent() {
+    return JSON.parse(localStorage.getItem('student') || 'null');
+  }
+
   studentLogout() {
     localStorage.removeItem('student');
     this.currentUser.set(null);

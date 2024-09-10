@@ -9,20 +9,20 @@
         <th>Destination</th>
         <th>Out Time</th>
         <th>In Time</th>
-        <th>Status</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let request of Requests">
-        <td>{{ request.id }}</td>
+        <td>{{ request.studentId }}</td>
         <td>{{ request.day }}</td>
         <td>{{ request.date }}</td>
         <td>{{ request.destination }}</td>
         <td>{{ request.outTime }}</td>
         <td>{{ request.inTime }}</td>
-        <td>{{ request.status }}</td>
       </tr>
     </tbody>
   </table>
+
+  <button (click)="goback()">Back</button>
 </div>

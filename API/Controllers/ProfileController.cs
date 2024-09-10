@@ -10,7 +10,6 @@ namespace API.Controllers {
 
 
         [HttpGet("students")]
-        [Authorize(Roles = "Warden")]
         public async Task<ActionResult<IEnumerable<Students>>> GetStudents() {
             var students = await context.StudentsDetail.ToListAsync();
             return students;

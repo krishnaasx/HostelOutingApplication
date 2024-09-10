@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240907230544_CreatedMigrations")]
-    partial class CreatedMigrations
+    [Migration("20240910141645_CreatedMigartions")]
+    partial class CreatedMigartions
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

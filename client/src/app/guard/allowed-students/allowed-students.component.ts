@@ -2,6 +2,7 @@ import { NgFor } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Component, inject } from '@angular/core';
 import { ToastrService } from "ngx-toastr";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-allowed-students',
@@ -16,6 +17,7 @@ export class AllowedStudentsComponent {
 
   private http = inject(HttpClient);
   private toastr = inject(ToastrService);
+  private location = inject(Location);
   Requests: any;
 
   constructor() {
@@ -30,6 +32,10 @@ export class AllowedStudentsComponent {
       },
       error: error => this.toastr.error(error.error)
     })
+  }
+
+  goback() {
+    this.location.back();
   }
 
 }
