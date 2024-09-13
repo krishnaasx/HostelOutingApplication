@@ -5,6 +5,7 @@ import { RouterOutlet } from "@angular/router";
 import { ToastrModule, ToastrService } from "ngx-toastr";
 import { NgFor } from "@angular/common";
 import { Location } from "@angular/common";
+import { StudentAccountService } from "../../_services/student-account.service";
 
 @Component({
   selector: 'app-send-request',
@@ -21,12 +22,18 @@ import { Location } from "@angular/common";
 export class SendRequestComponent {
 
   private sendRequestService = inject(SendRequestService);
+  private studentAccountService = inject(StudentAccountService);
   private toastr = inject(ToastrService);
   private location = inject(Location);
+  studentId: string | null = null;
   model: any = {};
 
-  sendRequest(form: any) {
-    if (form.valid) { 
+  constructor() {
+    this.studentId = this.studentAccountService.currentUser()?.id ?? null;
+  }
+
+  sendRequest() {
+    if (this.model.id == this.studentId!) { 
       this.sendRequestService.request(this.model).subscribe({
         next: (response) => {
           console.log(response);
@@ -39,7 +46,7 @@ export class SendRequestComponent {
         complete: () => console.log("Request has been completed")
       });
     } else {
-      this.toastr.error("Please fill in all required fields."); 
+      this.toastr.error("I see you :-)"); 
     }
   }
 

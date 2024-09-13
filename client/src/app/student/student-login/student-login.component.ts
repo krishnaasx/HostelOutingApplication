@@ -27,7 +27,7 @@ export class StudentLoginComponent {
       next: (response) => {
         console.log(response);
         this.logout();
-        this.router.navigateByUrl('/student-manu');
+        this.router.navigateByUrl('/student-menu');
       },
       error: (error) => console.log(error)
     });
