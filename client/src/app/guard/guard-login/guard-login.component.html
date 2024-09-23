@@ -4,17 +4,20 @@
     <h2 class="text-center text-primary"> Login </h2>
     <hr />
     <div class="mb-3 form-floating">
+      <label for="Guard-Id">Guard ID : </label>
       <input
         type="text"
         class="form-control"
         name="Guard Id"
         [(ngModel)]="model.id"
-        placeholder="Guard Id"
+        placeholder="Guard ID"
       />
-      <label for="Guard-Id">Guard Id</label>
+      
     </div>
   
     <div class="mb-3 form-floating">
+
+      <label for="password">Password : </label>
       <input
         type="password"
         class="form-control"
@@ -22,12 +25,12 @@
         [(ngModel)]="model.password"
         placeholder="Password"
       />
-      <label for="password">password</label>
+      
     </div>
   
     <div class="form-group text-center">
-      <button class="btn btn-success me-2" type="submit">Login</button>
-      <button class="btn btn-success me-2" (click)="goback()">Back</button>
+      <button class="btn btn-success me-2" id="login" type="submit">Login</button>
+      <button class="btn btn-success me-2" id="back" (click)="goback()">Back</button>
 
     </div>
   </form>

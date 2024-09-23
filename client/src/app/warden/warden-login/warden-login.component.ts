@@ -3,12 +3,18 @@ import { Router } from "@angular/router";
 import { WardenAccountService } from "../../_services/warden-account.service";
 import { FormsModule } from "@angular/forms";
 import { Location } from "@angular/common";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatInputModule} from '@angular/material/input';
+import { MatSelectModule } from "@angular/material/select";
 
 @Component({
   selector: 'app-warden-login',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   templateUrl: './warden-login.component.html',
   styleUrl: './warden-login.component.css'

@@ -1,36 +1,25 @@
 <div class="warden-login-container">
-  
-<form #loginForm="ngForm" (ngSubmit)="wardenLogin()" autocomplete="off">
-  <h2 class="text-center text-primary"> Login </h2>
-  <hr />
-  <div class="mb-3 form-floating">
-    <input
-      type="text"
-      class="form-control"
-      name="Warden Id"
-      [(ngModel)]="model.id"
-      placeholder="Warden Id"
-    /> 
-    <label for="Warden-Id">Warden Id</label>
-  </div>
 
-  <div class="mb-3 form-floating">
-    <input
-      type="password"
-      class="form-control"
-      name="password"
-      [(ngModel)]="model.password"
-      placeholder="Password"
-    />
-    <label for="password">password</label>
-  </div>
+  <form #loginForm="ngForm" (ngSubmit)="wardenLogin()" autocomplete="off">
+    <h2 class="text-center text-primary" > Login </h2>
+    <hr />
+    <div class="mb-3 form-floating">
+      <label for="Warden-Id">Warden ID : </label>
+      <input type="text" class="form-control" name="Warden Id" [(ngModel)]="model.id" placeholder="Warden ID" />
+    </div>
 
-  <div class="form-group text-center">
-    <button class="btn btn-success me-2" type="submit">Login</button>
-    <button class="btn btn-default me-2" (click)="goback()">Back</button>
-  </div>
+    <div class="mb-3 form-floating">
 
-</form>
+      <label for="password">Password : </label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password" />
+
+    </div>
+
+    <button class="btn btn-success me-2" id="login" type="submit"> Login </button>
+    <button class="btn btn-default me-2" id="back" (click)="goback()"> Back </button>
+
+  </form>
 
 </div>
+
 

@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+h2 {
+    font-family: 'Oswald';
+}
+
 h2:hover {
     cursor: pointer;
 }
+
+.menu-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+

@@ -1,54 +1,45 @@
 <div class="send-request-container">
-
   <form #requestForm="ngForm" (ngSubmit)="sendRequest()" autocomplete="off">
-    <h2 class="text-center text-primary">Send Request</h2>
-    <hr />
-  
-    <div class="mb-3 form-floating">
-      <label for="id"> Id : </label>
-      <input type="text" class="form-control" id="id" name="id" [(ngModel)]="model.id" placeholder="Id" required />
-      
-    </div>
-  
-    <div class="mb-3 form-floating">
-      <label for="name"> Name : </label>
-      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" placeholder="Name" required />
-   
-    </div>
-  
-    <div class="mb-3 form-floating">
-      <label for="day"> Day : </label>
-      <input type="text" class="form-control" id="day" name="day" [(ngModel)]="model.day" placeholder="Day" />
-      
-    </div>
-  
-    <div class="mb-3 form-floating">
-      <label for="date"> Date : </label>
-      <input type="text" class="form-control" id="date" name="date" [(ngModel)]="model.date" placeholder="Date" />
+    <h2 class="form-title">Send Request</h2>
     
+    <div class="form-group">
+     <label for="id"> <strong> Id </strong></label> 
+      <input type="text" class="form-control" id="id" name="id" [(ngModel)]="model.id" placeholder="Enter Id" required>
     </div>
-  
-    <div class="mb-3 form-floating">
-      <label for="destination"> Destination : </label>
-      <input type="text" class="form-control" id="destination" name="destination" [(ngModel)]="model.destination" placeholder="Destination" />
-      
+    
+    <div class="form-group">
+    <label for="name"> <strong> Name </strong></label>  
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" placeholder="Enter Name" required>
     </div>
-  
-    <div class="mb-3 form-floating">
-      <label for="outTime"> Out-Time : </label>
-      <input type="text" class="form-control" id="outTime" name="outTime" [(ngModel)]="model.outTime" placeholder="Out-Time" />
-      
+    
+    <div class="form-group">
+      <label for="day"> <strong> Day </strong> </label>
+      <input type="text" class="form-control" id="day" name="day" [(ngModel)]="model.day" placeholder="Enter Day">
     </div>
-  
-    <div class="mb-3 form-floating">
-      <label for="inTime"> In-Time : </label>
-      <input type="text" class="form-control" id="inTime" name="inTime" [(ngModel)]="model.inTime" placeholder="In-Time" />
-      
+    
+    <div class="form-group">
+      <label for="date"> <strong> Date </strong></label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="model.date">
     </div>
-  
-    <div class="form-group text-center">
-      <button class="btn btn-success me-2" type="submit" routerLink="/">Submit</button>
+    
+    <div class="form-group">
+      <label for="destination"> <strong> Destination </strong></label>
+      <input type="text" class="form-control" id="destination" name="destination" [(ngModel)]="model.destination" placeholder="Enter Destination">
+    </div>
+    
+    <div class="form-group">
+      <label for="outTime"><strong> Out-Time </strong></label>
+      <input type="time" class="form-control" id="outTime" name="outTime" [(ngModel)]="model.outTime">
+    </div>
+    
+    <div class="form-group">
+      <label for="inTime"> <strong> In-Time </strong></label>
+      <input type="time" class="form-control" id="inTime" name="inTime" [(ngModel)]="model.inTime">
+    </div>
+    
+    <div class="form-actions">
+      <button class="btn btn-secondary" type="button" (click)="goback()">Back</button>
+      <button class="btn btn-primary" type="submit">Submit</button>
     </div>
   </form>
-  <button class="btn btn-success me-2" (click)="goback()">Back</button>
 </div>
