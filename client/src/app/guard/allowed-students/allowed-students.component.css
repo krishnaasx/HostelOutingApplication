@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+h2 {
+    font-family: 'Oswald';
+}
+
+.check-request-guard-container {
+    padding: 2%;
+}

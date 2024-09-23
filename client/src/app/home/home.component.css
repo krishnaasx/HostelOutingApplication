@@ -6,11 +6,24 @@ h2:hover {
 h2 {
   font-family: 'Oswald';
 }
-button {
+
+.get-started-btn {
   border: none;
   padding: 10px 15px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+}
+
+#theme-toggle mat-slide-toggle {
+    font-size: 14px;
 }

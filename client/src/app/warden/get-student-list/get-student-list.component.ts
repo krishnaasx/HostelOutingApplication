@@ -1,4 +1,3 @@
-import { NgFor } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Component, inject } from '@angular/core';
 import { ToastrService } from "ngx-toastr";
@@ -6,32 +5,32 @@ import { Location } from "@angular/common";
 import { MatTableModule } from '@angular/material/table';
 
 @Component({
-  selector: 'app-allowed-students',
+  selector: 'app-get-student-list',
   standalone: true,
   imports: [
-    NgFor,
     MatTableModule
   ],
-  templateUrl: './allowed-students.component.html',
-  styleUrl: './allowed-students.component.css'
+  templateUrl: './get-student-list.component.html',
+  styleUrl: './get-student-list.component.css'
 })
-export class AllowedStudentsComponent {
+
+export class GetStudentListComponent {
 
   private http = inject(HttpClient);
   private toastr = inject(ToastrService);
   private location = inject(Location);
-  Requests: any[] = [];
-  displayedColumns: string[] = ['Student-ID', 'Day', 'Date', 'Destination', 'Out-time', 'In-time']
+  Students: any [] = []
+  displayedColumns: string[] = ['Id', 'Name', 'Hostel', 'Room Number', 'Phone Number', 'Parent Phone Number', 'Address', 'Department And Course']
 
   constructor() {
-    this.seeAllowedStudents();
+    this.getStudent();
   }
 
-  seeAllowedStudents() {
-    this.http.get<any>("https://localhost:5001/api/outingrequest/see-history").subscribe({
+  getStudent() {
+    this.http.get<any>("https://localhost:5001/api/profile/students").subscribe({
       next: (response) => {
-        this.Requests = response;
-        console.log(this.Requests);
+        this.Students = response;
+        console.log(this.Students);
       },
       error: error => this.toastr.error(error.error)
     })

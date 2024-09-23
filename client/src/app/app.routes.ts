@@ -10,6 +10,7 @@ import { AllowedStudentsComponent } from "./guard/allowed-students/allowed-stude
 import { StudentMenuComponent } from "./student/student-menu/student-menu.component";
 import { WardenMenuComponent } from "./warden/warden-menu/warden-menu.component";
 import { MainMenuComponent } from "./main-menu/main-menu.component";
+import { GetStudentListComponent } from "./warden/get-student-list/get-student-list.component";
 
 export const routes: Routes = [
 
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'check-request-student', component: CheckRequestStudentComponent},
   { path: 'student-menu', component: StudentMenuComponent},
   { path: 'warden-menu', component: WardenMenuComponent},
-  { path: 'allowed-students', component:AllowedStudentsComponent}
+  { path: 'allowed-students', component:AllowedStudentsComponent},
+  { path: 'get-student-warden', component:GetStudentListComponent}
   
 ];

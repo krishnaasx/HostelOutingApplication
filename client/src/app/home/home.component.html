@@ -1,9 +1,10 @@
 <div class="home-container">
+    <button mat-icon-button (click)="toggleTheme()" id="theme-toggle">
+        <mat-slide-toggle>{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</mat-slide-toggle>
+    </button>
     <div class="home-bottom-container">
-
         <h2 class="title">HOSTEL OUTING APPLICATION SYSTEM</h2>
         <p class="description">Your one solution to all things outing.</p>
-
-        <button routerLink="/main-menu"> Get started </button>
+        <button routerLink="/main-menu" class="get-started-btn">Get started</button>
     </div>
 </div>

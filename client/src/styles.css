@@ -1,22 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-.home-container, .menu-container, .student-login-container, .guard-login-container, .warden-login-container, .warden-menu-container, .student-menu-container{
-
+.home-container, .menu-container, .student-login-container, .guard-login-container, .warden-login-container, .warden-menu-container, .student-menu-container {
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
 }
 
-.home-bottom-container, .menu-button-container, .student-login-container, .guard-login-container, .warden-login-container, .student-menu-container,.check-request-warden-container{
-
+.home-bottom-container, .menu-button-container, .student-login-container, .guard-login-container, .warden-login-container, .student-menu-container,.check-request-warden-container, .check-request-student-container, .check-request-guard-container,.get-student-container {
   text-align: center;
-  
 }
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dark-theme {
+  background-color: #353333;
+  color: rgb(210, 210, 210);
+}

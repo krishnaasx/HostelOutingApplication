@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { SendRequestService } from "../../_services/send-request.service";
-import { RouterOutlet } from "@angular/router";
+import { RouterLink, RouterOutlet } from "@angular/router";
 import { ToastrModule, ToastrService } from "ngx-toastr";
 import { NgFor } from "@angular/common";
 import { Location } from "@angular/common";
@@ -14,7 +14,8 @@ import { StudentAccountService } from "../../_services/student-account.service";
     FormsModule,
     ToastrModule,
     RouterOutlet,
-    NgFor
+    NgFor,
+    RouterLink
   ],
   templateUrl: './send-request.component.html',
   styleUrl: './send-request.component.css'
