@@ -2,17 +2,13 @@ import { NgFor } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from "./home/home.component";
-import { StudentAccountService } from "./_services/student-account.service";
-import { WardenAccountService } from "./_services/warden-account.service";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet, 
-    NgFor, 
-    HomeComponent
+    NgFor,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

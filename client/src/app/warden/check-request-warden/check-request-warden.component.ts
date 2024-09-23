@@ -4,11 +4,18 @@ import { ToastrService } from "ngx-toastr";
 import { NgFor } from "@angular/common";
 import { Location } from "@angular/common";
 import { UpdateRequestService } from "../../_services/update-request.service";
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginator } from "@angular/material/paginator";
+
 
 @Component({
   selector: 'app-check-request-warden',
   standalone: true,
-  imports: [NgFor],
+  imports: [
+    NgFor,
+    MatTableModule,
+    MatPaginator
+    ],
   templateUrl: './check-request-warden.component.html',
   styleUrl: './check-request-warden.component.css',
 })
@@ -18,7 +25,9 @@ export class CheckRequestWardenComponent {
   private toastr = inject(ToastrService);
   private location = inject(Location);
   private updateRequestService = inject(UpdateRequestService);
-  Requests: any;
+  Requests:any = [];
+
+  displayedColumns: string[] = ['Request-ID', 'Student-ID', 'Day', 'Date', 'Destination', 'Out-time', 'In-time', 'Status', 'Update']
 
   constructor() {
     this.checkRequest();

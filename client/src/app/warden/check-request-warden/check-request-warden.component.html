@@ -1,34 +1,58 @@
-<div class="container">
-    <h2 class="text-center">Check Requests</h2>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Request ID</th>
-          <th>Student ID</th>
-          <th>Day</th>
-          <th>Date</th>
-          <th>Destination</th>
-          <th>Out Time</th>
-          <th>In Time</th>
-          <th>Status</th>
-          <th>Update</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        <tr *ngFor="let request of Requests">
-          <td>{{ request.requestId }}</td>
-          <td>{{ request.id }}</td>
-          <td>{{ request.day }}</td>
-          <td>{{ request.date }}</td>
-          <td>{{ request.destination }}</td>
-          <td>{{ request.outTime }}</td>
-          <td>{{ request.inTime }}</td>
-          <td>{{ request.status }}</td>
-          <td><button (click)="update(request.requestId, request.status)">Update</button></td>
-        </tr>
-      </tbody>
-    </table>
+<div class="check-request-warden-container">
+  <h2> TODAY'S REQUESTS</h2>
+  <table mat-table [dataSource]="Requests" class="mat-elevation-z8">
+    <ng-container matColumnDef="Request-ID">
+      <th mat-header-cell *matHeaderCellDef> <strong> Request Id. </strong>  </th>
+      <td mat-cell *matCellDef="let request"> <strong> {{request.requestId}} </strong>  </td>
+    </ng-container>
 
-    <button (click)="goback()">Back</button>
-  </div>
+    <ng-container matColumnDef="Student-ID">
+      <th mat-header-cell *matHeaderCellDef> <strong> Student Id</strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Day">
+      <th mat-header-cell *matHeaderCellDef> <strong> Day </strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.day}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef> <strong> Date </strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Destination">
+      <th mat-header-cell *matHeaderCellDef> <strong> Destination </strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.destination }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Out-time">
+      <th mat-header-cell *matHeaderCellDef> <strong> Out-time </strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.outTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="In-time">
+      <th mat-header-cell *matHeaderCellDef> <strong> In-Time </strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.inTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> <strong> Status </strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Update">
+      <th mat-header-cell *matHeaderCellDef> <strong> Update </strong>  </th>
+      <td mat-cell *matCellDef="let request"><button (click)="update(request.requestId, request.status)">Update</button>
+      </td>
+    </ng-container>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"> </mat-paginator>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <br>
+  <button (click)="goback()"> BACK </button>
+
+</div>

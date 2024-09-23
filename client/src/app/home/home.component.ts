@@ -1,3 +1,4 @@
+import { NgStyle } from "@angular/common";
 import { Component, inject} from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 
@@ -7,12 +8,15 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
   imports: [
     RouterLink,
     RouterLinkActive,
-    RouterOutlet
+    RouterOutlet,
+    NgStyle
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  
 }
 
 

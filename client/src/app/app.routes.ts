@@ -9,10 +9,12 @@ import { CheckRequestWardenComponent } from "./warden/check-request-warden/check
 import { AllowedStudentsComponent } from "./guard/allowed-students/allowed-students.component";
 import { StudentMenuComponent } from "./student/student-menu/student-menu.component";
 import { WardenMenuComponent } from "./warden/warden-menu/warden-menu.component";
+import { MainMenuComponent } from "./main-menu/main-menu.component";
 
 export const routes: Routes = [
 
   { path: '', component: HomeComponent },
+  { path: 'main-menu', component: MainMenuComponent},
   { path: 'wardenLogin', component: WardenLoginComponent},
   { path: 'studentLogin', component: StudentLoginComponent},
   { path: 'guardLogin', component: GuardLoginComponent},
@@ -22,4 +24,5 @@ export const routes: Routes = [
   { path: 'student-menu', component: StudentMenuComponent},
   { path: 'warden-menu', component: WardenMenuComponent},
   { path: 'allowed-students', component:AllowedStudentsComponent}
+  
 ];
