@@ -1,8 +1,8 @@
 import { Location, NgFor } from "@angular/common";
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { GetReqByIdService } from "../../_services/get-req-by-id.service";
-import { StudentAccountService } from "../../_services/student-account.service";
 import { MatTableModule } from '@angular/material/table';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-check-request-student',
@@ -14,22 +14,34 @@ import { MatTableModule } from '@angular/material/table';
   templateUrl: './check-request-student.component.html',
   styleUrl: './check-request-student.component.css'
 })
-export class CheckRequestStudentComponent {
+
+export class CheckRequestStudentComponent{
   
   private getReqByIdService = inject(GetReqByIdService);
-  private studentAccountService = inject(StudentAccountService);
   private location = inject(Location);
   Requests: any[] = [];
   displayedColumns: string[] = ['Student-ID', 'Day', 'Date', 'Destination', 'Out-time', 'In-time']
-  studentId: string | null = null;
+  studentId: string | null  = null;
+
 
   constructor() {
-    this.studentId = this.studentAccountService.currentUser()?.id ?? null;
-    if (this.studentId) {
-      this.fetchStudentHistory();
-    } else {
-      console.error("No student is logged in.");
+    this.getStudentId();
+    this.fetchStudentHistory(); 
+  } 
+
+  getUserIdFromToken(): string | null {
+
+    const token = localStorage.getItem('student'); 
+    
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken.nameid || null;
     }
+    return null;
+  }
+  
+  getStudentId() {
+    this.studentId = this.getUserIdFromToken();
   }
 
   fetchStudentHistory() {

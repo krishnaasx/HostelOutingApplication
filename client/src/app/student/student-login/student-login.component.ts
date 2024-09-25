@@ -2,7 +2,6 @@ import { Component, inject, output } from '@angular/core';
 import { StudentAccountService } from "../../_services/student-account.service";
 import { Router, RouterOutlet } from "@angular/router";
 import { FormsModule } from "@angular/forms";
-import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-student-login',
@@ -18,15 +17,13 @@ export class StudentLoginComponent {
 
   private studentAccountService = inject(StudentAccountService);
   private router = inject(Router);
-  private location = inject(Location);
-  cancelLogin = output<boolean>();
   model: any = {};
 
   studentLogin() {
+    localStorage.removeItem('student');
     this.studentAccountService.login(this.model).subscribe({
       next: (response) => {
         console.log(response);
-        this.logout();
         this.router.navigateByUrl('/student-menu');
       },
       error: (error) => console.log(error)
@@ -34,11 +31,11 @@ export class StudentLoginComponent {
   }
 
   goback() {
-    this.location.back();
+    this.router.navigateByUrl("/main-menu");
   }
 
   logout() {
-    this.cancelLogin.emit(false);
+    localStorage.removeItem('student');
   }
   
 }

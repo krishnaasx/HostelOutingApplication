@@ -5,7 +5,7 @@ import { RouterLink, RouterOutlet } from "@angular/router";
 import { ToastrModule, ToastrService } from "ngx-toastr";
 import { NgFor } from "@angular/common";
 import { Location } from "@angular/common";
-import { StudentAccountService } from "../../_services/student-account.service";
+import { jwtDecode } from "jwt-decode";
 
 @Component({
   selector: 'app-send-request',
@@ -23,14 +23,24 @@ import { StudentAccountService } from "../../_services/student-account.service";
 export class SendRequestComponent {
 
   private sendRequestService = inject(SendRequestService);
-  private studentAccountService = inject(StudentAccountService);
   private toastr = inject(ToastrService);
   private location = inject(Location);
   studentId: string | null = null;
   model: any = {};
 
   constructor() {
-    this.studentId = this.studentAccountService.currentUser()?.id ?? null;
+    this.studentId = this.getUserIdFromToken();
+  }
+
+  getUserIdFromToken(): string | null {
+
+    const token = localStorage.getItem('student'); 
+    
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken.nameid || null;
+    }
+    return null;
   }
 
   sendRequest() {
