@@ -412,3 +412,4 @@ D:\Projects\.NET\HostelOutingApplication\API\obj\Debug\net8.0\refint\API.dll
 D:\Projects\.NET\HostelOutingApplication\API\obj\Debug\net8.0\API.pdb
 D:\Projects\.NET\HostelOutingApplication\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 D:\Projects\.NET\HostelOutingApplication\API\obj\Debug\net8.0\ref\API.dll
+D:\Projects\.NET\HostelOutingApplication\API\bin\Debug\net8.0\API.staticwebassets.runtime.json

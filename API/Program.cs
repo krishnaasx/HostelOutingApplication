@@ -11,7 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<DataContext> ( options => options.UseSqlServer("Server=KRISH;Database=HostelOutingApplicationDB;Trusted_Connection=True;TrustServerCertificate=True"));
@@ -26,12 +25,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateIssuer = false
     };
 });
+
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200","https://localhost:4200"));
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.MapControllers();
+app.MapFallbackToController("Index","Fallback");
 
 app.Run();
