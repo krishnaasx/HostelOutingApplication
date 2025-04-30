@@ -4,14 +4,14 @@ import { Router, RouterOutlet } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: 'app-student-login',
   standalone: true,
-  imports: [
-    FormsModule,
-    RouterOutlet
-  ],
-  templateUrl: './student-login.component.html',
-  styleUrl: './student-login.component.css'
+    selector: 'app-student-login',
+    imports: [
+        FormsModule,
+        RouterOutlet
+    ],
+    templateUrl: './student-login.component.html',
+    styleUrl: './student-login.component.css'
 })
 export class StudentLoginComponent {
 

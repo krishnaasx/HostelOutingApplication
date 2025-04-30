@@ -1,6 +1,10 @@
 <div class="check-request-guard-container">
   <h2> CHECK PERMISSION </h2>
   <table mat-table [dataSource]="Requests" class="mat-elevation-z8">
+    <ng-container matColumnDef="Serial-Number">
+      <th mat-header-cell *matHeaderCellDef> <strong> Serial Number</strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.serialNumber}} </td>
+    </ng-container>
    
     <ng-container matColumnDef="Student-ID">
       <th mat-header-cell *matHeaderCellDef> <strong> Student Id</strong>  </th>
@@ -30,6 +34,17 @@
     <ng-container matColumnDef="In-time">
       <th mat-header-cell *matHeaderCellDef> <strong> In-Time </strong>  </th>
       <td mat-cell *matCellDef="let request"> {{request.inTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="In-status">
+      <th mat-header-cell *matHeaderCellDef> <strong> In-Status </strong>  </th>
+      <td mat-cell *matCellDef="let request"> {{request.inStatus}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Update">
+      <th mat-header-cell *matHeaderCellDef> <strong> Update </strong>  </th>
+      <td mat-cell *matCellDef="let request"><button (click)="update(request.serialNumber, request.inStatus)">Update</button>
+      </td>
     </ng-container>
 
 

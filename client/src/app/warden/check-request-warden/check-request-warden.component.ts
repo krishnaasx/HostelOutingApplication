@@ -9,15 +9,15 @@ import { MatPaginator } from "@angular/material/paginator";
 
 
 @Component({
-  selector: 'app-check-request-warden',
   standalone: true,
-  imports: [
-    NgFor,
-    MatTableModule,
-    MatPaginator
+    selector: 'app-check-request-warden',
+    imports: [
+        NgFor,
+        MatTableModule,
+        MatPaginator
     ],
-  templateUrl: './check-request-warden.component.html',
-  styleUrl: './check-request-warden.component.css',
+    templateUrl: './check-request-warden.component.html',
+    styleUrl: './check-request-warden.component.css'
 })
 export class CheckRequestWardenComponent {
   

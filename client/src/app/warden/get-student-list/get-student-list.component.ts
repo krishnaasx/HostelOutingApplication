@@ -5,13 +5,13 @@ import { Location } from "@angular/common";
 import { MatTableModule } from '@angular/material/table';
 
 @Component({
-  selector: 'app-get-student-list',
   standalone: true,
-  imports: [
-    MatTableModule
-  ],
-  templateUrl: './get-student-list.component.html',
-  styleUrl: './get-student-list.component.css'
+    selector: 'app-get-student-list',
+    imports: [
+        MatTableModule
+    ],
+    templateUrl: './get-student-list.component.html',
+    styleUrl: './get-student-list.component.css'
 })
 
 export class GetStudentListComponent {

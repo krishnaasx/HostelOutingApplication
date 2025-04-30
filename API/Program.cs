@@ -10,10 +10,10 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<DataContext> ( options => options.UseSqlServer("Server=KRISH;Database=HostelOutingApplicationDB;Trusted_Connection=True;TrustServerCertificate=True"));
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseNpgsql("Host=localhost;Port=5432;Username=postgres;Password=501363495577409;Database=hoadb"));
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
@@ -33,9 +33,9 @@ app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localho
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseDefaultFiles();
-app.UseStaticFiles();
+// app.UseDefaultFiles();
+// app.UseStaticFiles();
 app.MapControllers();
-app.MapFallbackToController("Index","Fallback");
+// app.MapFallbackToController("Index","Fallback");
 
 app.Run();

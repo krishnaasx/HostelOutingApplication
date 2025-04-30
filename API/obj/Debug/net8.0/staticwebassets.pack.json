@@ -1,51 +1,51 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\3rdpartylicenses.txt",
-      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets/3rdpartylicenses.txt"
     },
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\chunk-BT2BOUVI.js",
-      "PackagePath": "staticwebassets\\chunk-BT2BOUVI.js"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/chunk-BT2BOUVI.js",
+      "PackagePath": "staticwebassets/chunk-BT2BOUVI.js"
     },
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\chunk-IG74DXYB.js",
-      "PackagePath": "staticwebassets\\chunk-IG74DXYB.js"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/chunk-IG74DXYB.js",
+      "PackagePath": "staticwebassets/chunk-IG74DXYB.js"
     },
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\index.html",
-      "PackagePath": "staticwebassets\\index.html"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
     },
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\main-TT65AOZI.js",
-      "PackagePath": "staticwebassets\\main-TT65AOZI.js"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/main-TT65AOZI.js",
+      "PackagePath": "staticwebassets/main-TT65AOZI.js"
     },
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\polyfills-SCHOHYNV.js",
-      "PackagePath": "staticwebassets\\polyfills-SCHOHYNV.js"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/polyfills-SCHOHYNV.js",
+      "PackagePath": "staticwebassets/polyfills-SCHOHYNV.js"
     },
     {
-      "Id": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\styles-ORU6XO2J.css",
-      "PackagePath": "staticwebassets\\styles-ORU6XO2J.css"
+      "Id": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/styles-ORU6XO2J.css",
+      "PackagePath": "staticwebassets/styles-ORU6XO2J.css"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.API.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.API.props",
       "PackagePath": "build\\API.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.API.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.API.props",
       "PackagePath": "buildMultiTargeting\\API.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.API.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.API.props",
       "PackagePath": "buildTransitive\\API.props"
     }
   ],

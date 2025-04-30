@@ -5,14 +5,14 @@ import { MatTableModule } from '@angular/material/table';
 import { jwtDecode } from 'jwt-decode';
 
 @Component({
-  selector: 'app-check-request-student',
   standalone: true,
-  imports: [
-    NgFor,
-    MatTableModule
-  ],
-  templateUrl: './check-request-student.component.html',
-  styleUrl: './check-request-student.component.css'
+    selector: 'app-check-request-student',
+    imports: [
+        NgFor,
+        MatTableModule
+    ],
+    templateUrl: './check-request-student.component.html',
+    styleUrl: './check-request-student.component.css'
 })
 
 export class CheckRequestStudentComponent{

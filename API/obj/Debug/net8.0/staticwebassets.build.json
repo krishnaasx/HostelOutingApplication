@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7u4R5sUOwNKNiKW8EejEP8xlCdtU62rNDw92BKh8SCg=",
+  "Hash": "4wr37plM5JBizTCyM1navM4lKfYLmoCHH4DXLB/xuNE=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "API\\wwwroot",
+      "Name": "API/wwwroot",
       "Source": "API",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\3rdpartylicenses.txt",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/3rdpartylicenses.txt",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "3rdpartylicenses.txt",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\3rdpartylicenses.txt"
+      "OriginalItemSpec": "wwwroot/3rdpartylicenses.txt"
     },
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\chunk-BT2BOUVI.js",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/chunk-BT2BOUVI.js",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "chunk-BT2BOUVI.js",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\chunk-BT2BOUVI.js"
+      "OriginalItemSpec": "wwwroot/chunk-BT2BOUVI.js"
     },
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\chunk-IG74DXYB.js",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/chunk-IG74DXYB.js",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "chunk-IG74DXYB.js",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\chunk-IG74DXYB.js"
+      "OriginalItemSpec": "wwwroot/chunk-IG74DXYB.js"
     },
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\favicon.ico",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/favicon.ico",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\index.html",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/index.html",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -109,13 +109,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\index.html"
+      "OriginalItemSpec": "wwwroot/index.html"
     },
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\main-TT65AOZI.js",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/main-TT65AOZI.js",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "main-TT65AOZI.js",
       "AssetKind": "All",
@@ -128,13 +128,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\main-TT65AOZI.js"
+      "OriginalItemSpec": "wwwroot/main-TT65AOZI.js"
     },
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\polyfills-SCHOHYNV.js",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/polyfills-SCHOHYNV.js",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "polyfills-SCHOHYNV.js",
       "AssetKind": "All",
@@ -147,13 +147,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\polyfills-SCHOHYNV.js"
+      "OriginalItemSpec": "wwwroot/polyfills-SCHOHYNV.js"
     },
     {
-      "Identity": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\styles-ORU6XO2J.css",
+      "Identity": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/styles-ORU6XO2J.css",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\wwwroot\\",
+      "ContentRoot": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/wwwroot/",
       "BasePath": "_content/API",
       "RelativePath": "styles-ORU6XO2J.css",
       "AssetKind": "All",
@@ -166,7 +166,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\styles-ORU6XO2J.css"
+      "OriginalItemSpec": "wwwroot/styles-ORU6XO2J.css"
     }
   ]
 }

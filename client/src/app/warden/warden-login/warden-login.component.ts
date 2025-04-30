@@ -8,16 +8,16 @@ import {MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from "@angular/material/select";
 
 @Component({
-  selector: 'app-warden-login',
   standalone: true,
-  imports: [
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule
-  ],
-  templateUrl: './warden-login.component.html',
-  styleUrl: './warden-login.component.css'
+    selector: 'app-warden-login',
+    imports: [
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule
+    ],
+    templateUrl: './warden-login.component.html',
+    styleUrl: './warden-login.component.css'
 })
 export class WardenLoginComponent {
 

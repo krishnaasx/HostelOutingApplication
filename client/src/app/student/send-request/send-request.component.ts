@@ -8,17 +8,17 @@ import { Location } from "@angular/common";
 import { jwtDecode } from "jwt-decode";
 
 @Component({
-  selector: 'app-send-request',
   standalone: true,
-  imports: [
-    FormsModule,
-    ToastrModule,
-    RouterOutlet,
-    NgFor,
-    RouterLink
-  ],
-  templateUrl: './send-request.component.html',
-  styleUrl: './send-request.component.css'
+    selector: 'app-send-request',
+    imports: [
+        FormsModule,
+        ToastrModule,
+        RouterOutlet,
+        NgFor,
+        RouterLink
+    ],
+    templateUrl: './send-request.component.html',
+    styleUrl: './send-request.component.css'
 })
 export class SendRequestComponent {
 

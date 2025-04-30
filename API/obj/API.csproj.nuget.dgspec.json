@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\.NET\\HostelOutingApplication\\API\\API.csproj": {}
+    "/home/krishnaa/proj/webapps/HostelOutingApplication/API/API.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\.NET\\HostelOutingApplication\\API\\API.csproj": {
+    "/home/krishnaa/proj/webapps/HostelOutingApplication/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\API.csproj",
+        "projectUniqueName": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\krish\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\.NET\\HostelOutingApplication\\API\\obj\\",
+        "projectPath": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/API.csproj",
+        "packagesPath": "/home/krishnaa/.nuget/packages/",
+        "outputPath": "/home/krishnaa/proj/webapps/HostelOutingApplication/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\krish\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/krishnaa/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -57,7 +52,7 @@
               "target": "Package",
               "version": "[8.0.8, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.8, )"
             },
@@ -89,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.115/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

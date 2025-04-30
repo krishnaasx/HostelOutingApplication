@@ -1,3 +1,4 @@
+using System.Data;
 using API.Data;
 using API.DTOs;
 using API.Entities;
@@ -42,7 +43,6 @@ public class OutingRequestController(DataContext context) : BaseApiController {
         if (request == null) return NotFound();
         return Ok(request);
     }
-        
 
     [HttpPut("update-request/{id}")]
     public async Task<ActionResult<RequestForOutings>> WatchReqeust(int id, [FromBody] bool status) {
@@ -50,7 +50,7 @@ public class OutingRequestController(DataContext context) : BaseApiController {
         var request = await context.OutingRequest.FirstOrDefaultAsync(e => e.RequestId == id);
         if ( request == null) return NotFound();
 
-        request.Status = status;
+        request.Status = status; // so we're updating the status of the request
         await context.SaveChangesAsync();
 
         if (status) {
@@ -66,7 +66,6 @@ public class OutingRequestController(DataContext context) : BaseApiController {
             await context.OutingHistory.AddAsync(history);
             await context.SaveChangesAsync();
         }
-
         return request;
     }
 
@@ -82,6 +81,16 @@ public class OutingRequestController(DataContext context) : BaseApiController {
         var history = await context.OutingHistory.Where(e => e.StudentId == id).ToListAsync();
         if (history == null) NotFound();
         return Ok(history);
+    }
+
+    [HttpPut("update-in-status/{sn}")]
+    public async Task<ActionResult<HistoryOfOutings>> UpdateInStatus(int sn, [FromBody] bool inStatus) {
+      var row = await context.OutingHistory.FirstOrDefaultAsync(e => e.SerialNumber == sn);
+      if(row == null) return NotFound();
+
+      row.InStatus = inStatus;
+      await context.SaveChangesAsync();
+      return row;
     }
 
 }

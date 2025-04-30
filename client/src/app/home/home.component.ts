@@ -5,17 +5,17 @@ import { ThemeService } from "../_services/theme.service";
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    RouterOutlet,
-    NgStyle,
-    MatSlideToggleModule
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        RouterOutlet,
+        NgStyle,
+        MatSlideToggleModule
+    ],
+    templateUrl: './home.component.html',
+    standalone: true,
+    styleUrl: './home.component.css'
 })
 export class HomeComponent {
 

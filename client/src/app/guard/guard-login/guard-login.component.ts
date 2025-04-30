@@ -5,13 +5,13 @@ import { FormsModule } from "@angular/forms";
 import { Location } from "@angular/common";
 
 @Component({
-  selector: 'app-guard-login',
-  standalone: true,
-  imports: [
-    FormsModule
-  ],
-  templateUrl: './guard-login.component.html',
-  styleUrl: './guard-login.component.css'
+    selector: 'app-guard-login',
+    imports: [
+        FormsModule
+    ],
+    templateUrl: './guard-login.component.html',
+    standalone: true,
+    styleUrl: './guard-login.component.css'
 })
 export class GuardLoginComponent {
 
